@@ -1,6 +1,6 @@
 const model = {
     app: {
-        currentPage: 'userLogin', //eller newUser, mainPage, profile, ...
+        currentPage: 'userLogin', //eller newUser, settings, mainPage, profile, ...
     },
 
     inputs: {

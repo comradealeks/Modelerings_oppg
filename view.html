@@ -4,17 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="model.js"></script>
+    <script src="js/model.js"></script>
+    <script src="js/loginView.js"></script>
+    <script src="js/loginController.js"></script>
+    <script src="js/newUserView.js"></script>
+    <script src="js/newUserController.js"></script>
+    <script src="js/settingsView.js"></script>
+    <script src="js/settingsController.js"></script>
+    <script src="js/mainPageView.js"></script>
+    <script src="js/mainPageController.js"></script>
+    <script src="js/newTaskView.js"></script>
+    <script src="js/newTaskController.js"></script>
+    <script src="js/newPriceView.js"></script>
+    <script src="js/newPriceController.js"></script>
+    <script src="js/calenderView.js"></script>
+    <script src="js/calenderController.js"></script>
+    <script src="js/userListView.js"></script>
+    <script src="js/userListController.js"></script>
+    <script src="js/taskListView.js"></script>
+    <script src="js/taskListController.js"></script>
+    <script src="js/priceListView.js"></script>
+    <script src="js/priceListController.js"></script>
 </head>
 <body>
     <div id="Model"></div>
     <script>
-
         function updateView() {
-            document.getElementById("Model").innerHTML= /*HTML*/ `
-            
-            `
+            const page = model.app.currentPage;
+            if (page == userLogin) updateViewLogin();
+            if (page == newUser) updateViewNewUser();
+            if (page == settings) updateViewSettings();
+            if (page == mainPage) updateViewMainPage();
+            if (page == newTask) updateViewNewTask();
+            if (page == newPrice) updateViewNewPrice();
+            if (page == calender) updateViewCalender();
+            if (page == userList) updateViewUserList();
+            if (page == taskList) updateViewTaskList();
+            if (page == priceList) updateViewPriceList();            
         }
+        
     </script>
 </body>
 </html>
