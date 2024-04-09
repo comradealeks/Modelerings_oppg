@@ -39,7 +39,7 @@ const model = {
     },    
     prizes: [{
         Name: 'Blanket Fort!',
-        ageLimit: [5, 17],
+        ageLimit: {from: 5, to: 15},
         points: 3,
         deadline: null,
     }, {
@@ -54,7 +54,6 @@ const model = {
         {
             Name: 'take out garbage',
             type: ['weekly'],
-            ageLimit: [10, 20],
             ageLimit: {from: 10, to: 20},
             dueDate: null,
             cost: 10,
