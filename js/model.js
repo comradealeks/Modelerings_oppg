@@ -1,82 +1,67 @@
 const model = {
     app: {
-        currentPage: 'userLogin', 
+        currentPage: 'userLogin', //eller newUser, settings, mainPage, profile, ...
     },
 
     inputs: {
         login: {
             username: null,
             password: null,
+            errorMessage: null, 
         },
         register: {
             type: ['superuser', 'adult', 'teen', 'child'],
             username: null,
             password: null,
             email: null,
+            errorMessage: null,
         },
-        calendar: {
-            days: [],
-            day: {
-                id: null,
-                date: null,
-                tasks: [],
-                goalsPrices: [],
-            },
-        },
-    },
-    prizes: {
-        addPrize: {
-            Name: null,
-            type: [],
-            ageLimit: [],
-            ammount: null,
-            price: null,
-            deadline: null,
-        },
-        prizeList: [{
-            Name: 'Blanket Fort!',
-            type: ['child'],
-            ageLimit: [5, 17],
-            ammount: 5,
-            price: 5, 
-            deadline: null,
-            }, {
-            Name: 'Cinema',
-            type: ['teen'],
-            ageLimit: [13, 20],
-            ammount: 3,
-            price: 10, 
-            deadline: null,
-            },
-        ],
-    },
-    tasks: {
         addTask: {
             Name: null,
             type: [],
-            ageLimit: [],
+            ageLimit: {from: null, to: null},
             dueDate: null,
-            prizes: [],
+            cost: null,
             responsible: [],
-            points: null, 
         },
-        taskList: [{
+        profile: {
+            id: null,
+            name: null,
+            username: null,
+            email: null,
+        },
+        addPrize: {
+            Name: null,
+            ageLimit: {from: null, to: null},
+            points: null,
+            deadline: null,
+        },
+    },    
+    prizes: [{
+        Name: 'Blanket Fort!',
+        ageLimit: [5, 17],
+        points: 3,
+        deadline: null,
+    }, {
+        Name: 'Cinema',
+        ageLimit: {from: 13, to: 20},
+        points: 10,
+        deadline: null,
+    },
+    ],
+    taskTypes: [ 'once', 'dayly', 'weekly', 'monthly'],
+    tasks: [
+        {
             Name: 'take out garbage',
-            type: ['chore'],
+            type: ['weekly'],
             ageLimit: [10, 20],
+            ageLimit: {from: 10, to: 20},
             dueDate: null,
-            prizes: ['Blanket Fort!', 'Cinema'],
-            responsible: ['Aleksander Agledal', ],
-            points: 30,
-            },
-        ],
-    },
-    profile: {
-        id: null,
-        name: null,
-        username: null,
-        email: null,
-    },
+            cost: 10,
+            responsible: [1789, 4521],
+        },
+    ],
+
     users: [{
         id: 1789,
         type: 'adult',
@@ -84,15 +69,13 @@ const model = {
         password: 'abc123',
         username: 'theClown',
         email: 'karl.morten.lunna@gmail.com',
-        points: 13,
-        }, {
+    }, {
         id: 4521,
         type: 'superuser',
         name: 'Aleksander Agledal',
         password: 'DwarfStarConqurer27',
         username: 'AleksiosMaximanus',
         email: 'aagledal@gmail.com',
-        points: 120,
-        }
+    }
     ],
 };
