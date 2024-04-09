@@ -14,5 +14,6 @@ function updateViewLogin() {
         /><br/>
         <div>${model.inputs.login.errorMessage ?? ''}</div>
         <button onclick="login()">Logg inn</button>
+        <button onclick="goToNewUser()">Lag ny bruker</button>
     `
 }
