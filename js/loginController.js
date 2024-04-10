@@ -1,5 +1,5 @@
 function login() {
-    for (user in model.users) {
+    for (let user of model.users) {
         if (user.username == model.inputs.login.username && user.password == model.inputs.login.password) {
             model.app.currentPage = 'mainPage';
             updateView();

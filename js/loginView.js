@@ -4,15 +4,15 @@ function updateViewLogin() {
         <input
             type = "text"
             onchange = "model.inputs.login.username = this.value"
-            value = ${model.inputs.login.username ?? ''} 
+            value = "${model.inputs.login.username ?? ''}" 
         /><br/>
         Passord:<br/>
         <input
             type = "password"
             onchange = "model.inputs.login.password = this.value"
-            value = ${model.inputs.login.password ?? ''} 
+            value = "${model.inputs.login.password ?? ''}" 
         /><br/>
-        <div>${model.inputs.login.errorMessage ?? ''}</div>
+        <div style="color: red">${model.inputs.login.errorMessage ?? ''}</div>
         <button onclick="login()">Logg inn</button>
         <button onclick="goToNewUser()">Lag ny bruker</button>
     `

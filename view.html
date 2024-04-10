@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="Style.css">
     <script src="js/model.js"></script>
     <script src="js/loginView.js"></script>
     <script src="js/loginController.js"></script>
@@ -27,10 +28,12 @@
     <script src="js/priceListController.js"></script>
 </head>
 <body>
-    <div id="Model"></div>
+    <div id="Model" class="Screen"></div>
     <script>
+        updateView();
         function updateView() {
-            const page = model.app.currentPage;
+            //const page = model.app.currentPage;
+            const page = 'mainPage';
             if (page == 'userLogin') updateViewLogin();
             if (page == 'newUser') updateViewNewUser();
             if (page == 'settings') updateViewSettings();

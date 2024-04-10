@@ -2,7 +2,7 @@ const model = {
     app: {
         currentPage: 'userLogin', //eller newUser, settings, mainPage, profile, ...
     },
-
+    UserType: ['superuser', 'adult', 'teen', 'child'],
     inputs: {
         login: {
             username: null,
@@ -10,9 +10,11 @@ const model = {
             errorMessage: null, 
         },
         register: {
-            type: ['superuser', 'adult', 'teen', 'child'],
+            name: null,
+            type: null,
             username: null,
             password: null,
+            password2: null,
             email: null,
             errorMessage: null,
         },
@@ -75,6 +77,13 @@ const model = {
         password: 'DwarfStarConqurer27',
         username: 'AleksiosMaximanus',
         email: 'aagledal@gmail.com',
+    }, {
+        id: 1111,
+        type: 'superuser',
+        name: '1',
+        password: '1',
+        username: '1',
+        email: '1',
     }
     ],
 };
