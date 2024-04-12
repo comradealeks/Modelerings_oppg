@@ -1,6 +1,6 @@
 const model = {
     app: {
-        currentPage: 'mainPage', //eller newUser, settings, mainPage, profile, ... (userLogin)
+        currentPage: 'settings', //eller newUser, settings, mainPage, profile, ... (userLogin)
         colorMode: 'light',
     },
     UserType: ['superuser', 'adult', 'teen', 'child'],
@@ -65,6 +65,7 @@ const model = {
         deadline: null,
     },
     ],
+    weekdays: ['Mandag','Tirsdag','Onsdag','Torsdag','Fredag','Lørdag','Søndag'],
     taskTypes: [ 'once', 'dayly', 'weekly', 'monthly'],
     tasks: [
         {

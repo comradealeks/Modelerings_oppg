@@ -141,8 +141,12 @@
     --text-color: white; 
   }
 
-
-
+input[type="color"] {
+    width: 159px;
+    height: 20px;
+    padding: 0;
+}
+// need to fix this shit in settingsController
 
 
 
