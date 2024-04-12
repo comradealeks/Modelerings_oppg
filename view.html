@@ -26,6 +26,8 @@
     <script src="js/taskListController.js"></script>
     <script src="js/priceListView.js"></script>
     <script src="js/priceListController.js"></script>
+    <script src="logoutFile.js"></script>
+    <script src="colorScheme.js"></script>
 </head>
 <body>
     <div id="Model" class="Screen"></div>
@@ -33,7 +35,7 @@
         updateView();
         function updateView() {
             //const page = model.app.currentPage;
-            const page = 'mainPage';
+            const page = model.app.currentPage;
             if (page == 'userLogin') updateViewLogin();
             if (page == 'newUser') updateViewNewUser();
             if (page == 'settings') updateViewSettings();

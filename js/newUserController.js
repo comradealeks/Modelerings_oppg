@@ -14,7 +14,7 @@ function SaveNewUser(){
         error = 1;
     }
     if (hasWhiteSpace(model.inputs.register.password) || hasWhiteSpace(model.inputs.register.username)) {
-        model.inputs.register.errorMessage = 'The password or the username is unvalid, do not use spaces'
+        model.inputs.register.errorMessage = 'The password or the username is invalid, do not use spaces'
         error = 1;
     }
     if (!testEmail(model.inputs.register.email)) {
@@ -26,6 +26,10 @@ function SaveNewUser(){
             model.inputs.register.errorMessage = "This username is already taken"
             error = 1;
         }
+    }
+    if (!model.inputs.register.age) {
+        model.inputs.register.errorMessage = 'Du må fylle ut feltet med alder'
+        error = 1;
     }
     if (error == 0){
         //mangler å legge inn id under her:

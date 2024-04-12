@@ -1,11 +1,12 @@
 const model = {
     app: {
-        currentPage: 'userLogin', //eller newUser, settings, mainPage, profile, ...
+        currentPage: 'mainPage', //eller newUser, settings, mainPage, profile, ... (userLogin)
+        colorMode: 'light',
     },
     UserType: ['superuser', 'adult', 'teen', 'child'],
     inputs: {
         login: {
-            username: null,
+            username: 'AleksiosMaximanus',
             password: null,
             errorMessage: null, 
         },
@@ -16,10 +17,11 @@ const model = {
             password: null,
             password2: null,
             email: null,
+            age: null,
             errorMessage: null,
         },
         addTask: {
-            Name: null,
+            name: null,
             type: [],
             ageLimit: {from: null, to: null},
             dueDate: null,
@@ -42,12 +44,24 @@ const model = {
     prizes: [{
         Name: 'Blanket Fort!',
         ageLimit: {from: 5, to: 15},
-        points: 3,
+        points: 30,
         deadline: null,
     }, {
         Name: 'Cinema',
         ageLimit: {from: 13, to: 20},
+        points: 100,
+        deadline: null,
+    },
+    {
+        Name: 'Sjokoladebit',
+        ageLimit: {from: 3, to: 20},
         points: 10,
+        deadline: null,
+    },
+    {
+        Name: '50 kroner',
+        ageLimit: {from: 13, to: 20},
+        points: 50,
         deadline: null,
     },
     ],
@@ -57,9 +71,28 @@ const model = {
             Name: 'take out garbage',
             type: ['weekly'],
             ageLimit: {from: 10, to: 20},
-            dueDate: null,
+            dueDate: 4,
             cost: 10,
             responsible: [1789, 4521],
+            done: false,
+        },
+        {
+            Name: 'lag middag',
+            type: ['weekly'],
+            ageLimit: {from: 10, to: 20},
+            dueDate: 1,
+            cost: 20,
+            responsible: [1789, 4521],
+            done: false,
+        },
+        {
+            Name: 'gå tur med bikkja',
+            type: ['weekly'],
+            ageLimit: {from: 10, to: 20},
+            dueDate: 4,
+            cost: 15,
+            responsible: [1789,4521],
+            done: false,
         },
     ],
 
@@ -69,21 +102,36 @@ const model = {
         name: 'Kalle Klovn',
         password: 'abc123',
         username: 'theClown',
+        age: 40,
         email: 'karl.morten.lunna@gmail.com',
+        points: 13,
     }, {
         id: 4521,
         type: 'superuser',
         name: 'Aleksander Agledal',
         password: 'DwarfStarConqurer27',
         username: 'AleksiosMaximanus',
+        age: 20,
         email: 'aagledal@gmail.com',
+        points: 23,
     }, {
         id: 1111,
         type: 'superuser',
         name: '1',
         password: '1',
         username: '1',
+        age: 1,
         email: '1',
+        points: 1,
+    }, {
+        id: 1311,
+        type: 'superuser',
+        name: 'Donald Duck',
+        password: 'daff',
+        username: 'Donaldos',
+        age: 50,
+        email: 'dd@andeby.com',
+        points: 150,
     }
     ],
 };
