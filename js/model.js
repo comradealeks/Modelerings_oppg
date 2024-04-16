@@ -1,7 +1,8 @@
 const model = {
     app: {
-        currentPage: 'settings', //eller newUser, settings, mainPage, profile, ... (userLogin)
-        colorMode: 'light',
+        name: 'App Name',
+        currentPage: 'mainPage', //eller newUser, settings, mainPage, profile, ... (userLogin)
+        colorMode: 'dark',
     },
     UserType: ['superuser', 'adult', 'teen', 'child'],
     inputs: {
@@ -27,6 +28,7 @@ const model = {
             dueDate: null,
             cost: null,
             responsible: [],
+            errorMessage: null,
         },
         profile: {
             id: null,
@@ -39,6 +41,7 @@ const model = {
             ageLimit: {from: null, to: null},
             points: null,
             deadline: null,
+            errorMessage: null,
         },
     },    
     prizes: [{
@@ -69,7 +72,7 @@ const model = {
     taskTypes: [ 'once', 'dayly', 'weekly', 'monthly'],
     tasks: [
         {
-            Name: 'take out garbage',
+            Name: 'Ta ut søppelet',
             type: ['weekly'],
             ageLimit: {from: 10, to: 20},
             dueDate: 4,
@@ -78,7 +81,7 @@ const model = {
             done: false,
         },
         {
-            Name: 'lag middag',
+            Name: 'Lag middag',
             type: ['weekly'],
             ageLimit: {from: 10, to: 20},
             dueDate: 1,
@@ -87,7 +90,7 @@ const model = {
             done: false,
         },
         {
-            Name: 'gå tur med bikkja',
+            Name: 'Gå tur med bikkja',
             type: ['weekly'],
             ageLimit: {from: 10, to: 20},
             dueDate: 4,
@@ -106,6 +109,7 @@ const model = {
         age: 40,
         email: 'karl.morten.lunna@gmail.com',
         points: 13,
+        color: '#000000',
     }, {
         id: 4521,
         type: 'superuser',
@@ -115,6 +119,7 @@ const model = {
         age: 20,
         email: 'aagledal@gmail.com',
         points: 23,
+        color: '#0008ff',
     }, {
         id: 1111,
         type: 'superuser',
@@ -124,6 +129,7 @@ const model = {
         age: 1,
         email: '1',
         points: 1,
+        color: '#000000',
     }, {
         id: 1311,
         type: 'superuser',
@@ -133,6 +139,15 @@ const model = {
         age: 50,
         email: 'dd@andeby.com',
         points: 150,
-    }
-    ],
+        color: '#000000',
+    }],
+    colorScheme: {
+        mainPage: {
+            calenderDays: '#ffd195',
+            calenderList: '#ffdfb5',
+            familyGoal: '#ffd000',
+            listHeadder: '#ffd195',
+            listList: '#ffdfb5',
+        },
+    },
 };

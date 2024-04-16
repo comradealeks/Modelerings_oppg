@@ -1,0 +1,92 @@
+.calender {
+    display: flex;
+    border: 2px solid black;
+    width: 100%;
+    height: 200px;
+    border-radius: 4px;
+    overflow: auto;
+    border-collapse: collapse;
+    color: black;
+}
+.calender_date {
+    flex-direction: row-reverse;
+    border: 1px solid black;
+    height: 30px;
+    width: 100dvi;
+}
+.calender_task {
+    border: 1px solid black;
+    height: 160px;
+
+    width: 100dvi;
+}
+.ListDisplay {
+    display: flex;
+    color: black;
+}
+.ListHeadline {
+    flex-direction: row-reverse;
+    border: 1px solid black;
+    height: 30px;
+    width: 100dvi;
+}
+.TaskList {
+    border: 2px solid black;
+    width: 100%;
+    height: 200px;
+    border-collapse: collapse;
+    border-radius: 4px;
+    overflow: auto;
+}
+.UserList {
+    border: 2px solid black;
+    width: 100%;
+    height: 200px;
+    border-collapse: collapse;
+    border-radius: 4px;
+    overflow: auto;
+}
+.PrizeList {
+    border: 2px solid black;
+    width: 100%;
+    height: 200px;
+    border-collapse: collapse;
+    border-radius: 4px;
+    overflow: auto;
+}
+.PointListHeadline {
+    flex-direction: row-reverse;
+    border: 1px solid black;
+    height: 30px;
+    width: 100px;
+}
+.Pointlists {
+    border: 1px solid black;
+    overflow: auto;
+    width: 100px;
+}
+.lists {
+    border: 1px solid black;
+    overflow: auto;
+    width: 1000dvi;
+}
+.NewTaskList {
+    border: 2px solid #008CBA;
+    border-radius: 5px;
+    text-align: left;
+    overflow: auto;
+    height: 100px;
+    width: 200px;
+    margin: 0 auto;
+    margin-bottom: 5px;
+}
+
+@media only screen and (max-width: 406px) {
+    .calender {
+        display: flex;
+        border: 2px solid black;
+        width: 150%;
+        height: 200px;
+        border-collapse: collapse;
+    }
+}

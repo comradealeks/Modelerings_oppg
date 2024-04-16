@@ -1,0 +1,87 @@
+.logoutButton {
+    width: auto;
+    position: absolute;
+    background-color: white; 
+    color: black; 
+    border: 2px solid #008CBA;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 4px;
+    transition-duration: 0.1s;
+    height: 30px;
+}
+.logoutButton:hover {
+    background-color: #008CBA;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 4px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)
+}
+.logoutButton:active {
+    background-color: #008CBA;
+    box-shadow: 0 5px #666;
+    transform: translateY(1px);
+  }
+.MainButtons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.Button {    
+    background-color: white; 
+    color: black; 
+    border: 2px solid #008CBA;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 4px;
+    transition-duration: 0.1s;
+    height: 30px;
+    width: 35%;
+}
+.Button:hover {
+    background-color: #008CBA;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 4px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+.Button:active {
+    background-color: #008CBA;
+    box-shadow: 0 5px #666;
+    transform: translateY(1px);
+}
+.settingsButton {
+    background-color: white; 
+    color: black; 
+    border: 2px solid #008CBA;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 4px;
+    transition-duration: 0.1s;
+    height: 40px;
+    width: 35%;
+    margin: 5px;
+}
+.settingsButton:hover {
+    background-color: #008CBA;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 4px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+.settingsButton:active {
+    background-color: #008CBA;
+    box-shadow: 0 5px #666;
+    transform: translateY(1px);
+}
+@media only screen and (max-width: 406px) {
+    .CornerButton {
+        position: absolute;
+    }
+    .logoutButton {
+        position: relative;
+    }
+}

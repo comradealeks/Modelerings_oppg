@@ -1,34 +1,31 @@
 function updateViewMainPage() {
     document.getElementById("Model").innerHTML = /*HTML*/`
-        <button class="logoutButton" onclick="logout()">Logout</button>
-        <h1 class="center">App Name</h1>
+        <button class="logoutButton" onclick="logout()">Logg ut</button>
+        <h1 class="center">${model.app.name}</h1>
         <div class="center">Du er logget inn som ${model.inputs.login.username}</div>
-        ${makeCalenderWeek()}
-        <div class="FamilyGoalMain">
-            <div>The family goal is:</div>
-            <div>empty</div>
+        <div ${assignColor('mainPage', 'calenderList')}>${makeCalenderWeek()}</div>
+        <div class="FamilyGoalMain" ${assignColor('mainPage', 'familyGoal')}>
+            <div>Familiens mål er:</div>
+            <div>Tomt</div>
         </div>
         <div class="ListDisplay">
-            <div class="TaskList">${listOfAllTasks()}</div>
-            <div class="UserList">${listOfUsersAndPoints()}</div>        
-            <div class="PrizeList">${listOfPrices()}</div>
+            <div class="TaskList" ${assignColor('mainPage', 'listList')}>${listOfAllTasks()}</div>
+            <div class="UserList" ${assignColor('mainPage', 'listList')}>${listOfUsersAndPoints()}</div>        
+            <div class="PrizeList" ${assignColor('mainPage', 'listList')}>${listOfPrices()}</div>
         </div>
         <div class="MainButtons">
-            <button class="Button" onclick="updateViewNewTask()">New Task</button>
-            <button class="Button" onclick="updateViewSettings()">Settings</button>
-            <button class="Button" onclick="updateViewNewPrice()">New Prize</button>
+            <button class="Button" onclick="updateViewNewTask()">Ny oppgave</button>
+            <button class="Button" onclick="updateViewSettings()">Instillinger</button>
+            <button class="Button" onclick="updateViewNewPrice()">Ny premie</button>
         </div>
-        <button onclick="ColorScheme()">ColorChange</button>
     `
 }
 
 function makeCalenderWeek() {
-    //her skal det være mer avansert etter hvert
     const d = new Date();
-    let weekDays = ['Mandag','Tirsdag','Onsdag','Torsdag','Fredag','Lørdag','Søndag']
     let firstHtml = '';
-    for (let i=0;i<weekDays.length;i++) {
-        firstHtml+= `<th class="calender_date">${weekDays[(d.getDay()+i-1)%7]}</th>`
+    for (let i=0;i<model.weekdays.length;i++) {
+        firstHtml+= `<th class="calender_date" ${assignColor('mainPage', 'calenderDays')}>${model.weekdays[(d.getDay()+i-1)%7]}</th>`
     }
     firstHtml = `<tr>${firstHtml}</tr>`
 
@@ -36,7 +33,7 @@ function makeCalenderWeek() {
     let tasksToDo = model.tasks;
     let secondHtml = '';
     let theLoggedIn = findThePerson();
-    for (let j=0;j<weekDays.length;j++) {
+    for (let j=0;j<model.weekdays.length;j++) {
         let cellHtml = '';
         for (let k=0;k<tasksToDo.length;k++) {
             if (taskMatchesDayAndPerson((d.getDay()+j-1)%7,theLoggedIn.id,tasksToDo[k]) && personAgeFitsTask(theLoggedIn.age,tasksToDo[k])) {
@@ -54,21 +51,20 @@ function makeCalenderWeek() {
 function listOfUsersAndPoints() {
     let allUsers = model.users;
     allUsers.sort(function(a,b) {return b.points - a.points;});
-    let userListHtml = `<tr><th class="ListHeadline">Users</th><th class="ListHeadline">Points</th></tr>`;
+    let userListHtml = `<tr ${assignColor('mainPage', 'listHeadder')}><th class="ListHeadline">Brukere</th><th class="PointListHeadline">Poeng</th></tr>`;
     for (let person of allUsers) {
-        userListHtml += `<tr><td class="lists">${person.username}</td><td class="lists">${person.points}</td></tr>`
+        userListHtml += `<tr><td class="lists">${person.username}</td><td class="Pointlists">${person.points}</td></tr>`
     }
     return `<table>${userListHtml}</table>`
 }
-
 function listOfAllTasks() {
     let allTasks = model.tasks;
     allTasks.sort(function(a,b) {return b.cost - a.cost;});
-    let taskListHtml = `<tr><th class="ListHeadline">Tasks</th><th class="ListHeadline">Points</th></tr>`;
+    let taskListHtml = `<tr ${assignColor('mainPage', 'listHeadder')}><th class="ListHeadline">Oppgaver</th><th class="PointListHeadline">Poeng</th></tr>`;
     //Under legges bare oppgavene som er for den innlogga brukeren til (sånn vi vil ha det sikkert??):
     for (let task of allTasks) {
         if (task.responsible.includes(findThePerson().id)) {
-            taskListHtml += `<tr><td class="lists">${task.Name}</td><td class="lists">${task.cost}</td></tr>`
+            taskListHtml += `<tr><td class="lists">${task.Name}</td><td class="Pointlists">${task.cost}</td></tr>`
         }
     }
     return `<table>${taskListHtml}</table>`
@@ -77,10 +73,10 @@ function listOfAllTasks() {
 function listOfPrices() {
     let thePrices = model.prizes;
     thePrices.sort(function(a,b) {return b.points - a.points;});
-    let pricesHtml = `<tr><th class="ListHeadline">Prizes</th><th class="ListHeadline">Points</th></tr>`;
+    let pricesHtml = `<tr ${assignColor('mainPage', 'listHeadder')}><th class="ListHeadline">Premier</th><th class="PointListHeadline">Poeng</th></tr>`;
     //Under må vi etter hvert legge inn om brukeren har riktig alder for å kunne få premien
     for (let price of thePrices) {
-        pricesHtml += `<tr><td class="lists">${price.Name}</td><td class="lists">${price.points}</td></tr>`
+        pricesHtml += `<tr><td class="lists">${price.Name}</td><td class="Pointlists">${price.points}</td></tr>`
     }
     return `<table>${pricesHtml}</table>`
 }

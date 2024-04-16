@@ -5,3 +5,8 @@ function logout() {
     model.app.currentPage = 'userLogin';
     updateView();
 }
+
+function backToMain(){
+    model.app.currentPage = 'mainPage';
+    updateView();
+}

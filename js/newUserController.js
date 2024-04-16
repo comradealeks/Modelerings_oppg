@@ -6,24 +6,24 @@ function SaveNewUser(){
     let error = 0;
     model.inputs.register.errorMessage = null
     if (model.inputs.register.type == null) {
-        model.inputs.register.errorMessage = 'You have to choose a type'
+        model.inputs.register.errorMessage = 'Du må velge en type'
         error = 1;
     }
     if (model.inputs.register.password != model.inputs.register.password2){
-        model.inputs.register.errorMessage = 'The passwords you wrote does not match'
+        model.inputs.register.errorMessage = 'Passordet stemmer ikke'
         error = 1;
     }
     if (hasWhiteSpace(model.inputs.register.password) || hasWhiteSpace(model.inputs.register.username)) {
-        model.inputs.register.errorMessage = 'The password or the username is invalid, do not use spaces'
+        model.inputs.register.errorMessage = 'Brukernavn og passord kan ikke inneholde mellomrom'
         error = 1;
     }
     if (!testEmail(model.inputs.register.email)) {
-        model.inputs.register.errorMessage = 'This email is not valid'
+        model.inputs.register.errorMessage = 'Denne eposten adressen er ikke gyldig'
         error = 1;
     }
     for (let user of model.users) {
         if (user.username == model.inputs.register.username) {
-            model.inputs.register.errorMessage = "This username is already taken"
+            model.inputs.register.errorMessage = "Dette brukernavnet er allerede i bruk"
             error = 1;
         }
     }
@@ -39,7 +39,9 @@ function SaveNewUser(){
             name: model.inputs.register.name,
             password: model.inputs.register.password,
             username: model.inputs.register.username,
-            email: model.inputs.register.email,  });
+            email: model.inputs.register.email,  
+            color: "#000000" //tror dette burde fungere
+        });
         
         model.app.currentPage = 'userLogin';
         model.inputs.register.type = null;
@@ -50,7 +52,7 @@ function SaveNewUser(){
         model.inputs.register.email = null;
         updateView();
     } else {
-        updateView()
+        updateView();
     }
     
 }

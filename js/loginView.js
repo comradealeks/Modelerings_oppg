@@ -1,7 +1,7 @@
 function updateViewLogin() {
     document.getElementById("Model").innerHTML = /*HTML*/`
         <div class="UserLogin">
-            <h1>App Name</h1>
+            <h1>${model.app.name}</h1>
             Brukernavn:<br/>
             <input
                 type = "text"

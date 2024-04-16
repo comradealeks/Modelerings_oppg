@@ -7,7 +7,7 @@ function taskMatchesDayAndPerson(dayValue,personId,task) {
     return false;
 }
 
-//returnerer id-en til den personen som er logga inn
+//returnerer id-en og alderen til den personen som er logga inn
 function findThePerson() {
     for (let person of model.users) {
         if (person.username == model.inputs.login.username) {
@@ -20,4 +20,13 @@ function personAgeFitsTask(age,task) {
     if (!task.ageLimit) return true;
     if (age>=task.ageLimit.from && age<=task.ageLimit.to) return true;
     return false;
+}
+
+
+function grabOrDeleteTask() {
+
+}
+
+function grabOrDeletePrize() {
+    
 }
