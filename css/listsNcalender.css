@@ -6,7 +6,6 @@
     border-radius: 4px;
     overflow: auto;
     border-collapse: collapse;
-    color: black;
 }
 .calender_date {
     flex-direction: row-reverse;
@@ -22,7 +21,6 @@
 }
 .ListDisplay {
     display: flex;
-    color: black;
 }
 .ListHeadline {
     flex-direction: row-reverse;
@@ -80,6 +78,17 @@
     margin: 0 auto;
     margin-bottom: 5px;
 }
+.MainCalender {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .MainCalender > div {
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: 100%;
+    min-width: 600px;
+  }
 
 @media only screen and (max-width: 406px) {
     .calender {

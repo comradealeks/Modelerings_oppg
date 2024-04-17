@@ -1,9 +1,9 @@
 .logoutButton {
+    background-color: var(--button-background);
     width: auto;
     position: absolute;
-    background-color: white; 
-    color: black; 
-    border: 2px solid #008CBA;
+    color: var(--button-text);
+    border: var(--button-outline);
     cursor: pointer;
     font-size: 14px;
     border-radius: 4px;
@@ -11,15 +11,15 @@
     height: 30px;
 }
 .logoutButton:hover {
-    background-color: #008CBA;
-    color: white;
+    background-color: var(--button-hover);
+    color: var(--button-hover-text);
     cursor: pointer;
     font-size: 14px;
     border-radius: 4px;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)
 }
 .logoutButton:active {
-    background-color: #008CBA;
+    background-color: var(--button-hover);
     box-shadow: 0 5px #666;
     transform: translateY(1px);
   }
@@ -27,11 +27,18 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
+    
+}
+.calenderButton {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 6px;
 }
 .Button {    
-    background-color: white; 
-    color: black; 
-    border: 2px solid #008CBA;
+    background-color: var(--button-background);
+    color: var(--button-text);
+    border: var(--button-outline);
     cursor: pointer;
     font-size: 14px;
     border-radius: 4px;
@@ -40,22 +47,22 @@
     width: 35%;
 }
 .Button:hover {
-    background-color: #008CBA;
-    color: white;
+    background-color: var(--button-hover);
+    color: var(--button-hover-text);
     cursor: pointer;
     font-size: 14px;
     border-radius: 4px;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 .Button:active {
-    background-color: #008CBA;
+    background-color: var(--button-hover);
     box-shadow: 0 5px #666;
     transform: translateY(1px);
 }
 .settingsButton {
-    background-color: white; 
-    color: black; 
-    border: 2px solid #008CBA;
+    background-color: var(--button-background);
+    color: var(--button-text);
+    border: var(--button-outline);
     cursor: pointer;
     font-size: 14px;
     border-radius: 4px;
@@ -65,15 +72,15 @@
     margin: 5px;
 }
 .settingsButton:hover {
-    background-color: #008CBA;
-    color: white;
+    background-color: var(--button-hover);
+    color: var(--button-hover-text);
     cursor: pointer;
     font-size: 14px;
     border-radius: 4px;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 .settingsButton:active {
-    background-color: #008CBA;
+    background-color: var(--button-hover);
     box-shadow: 0 5px #666;
     transform: translateY(1px);
 }

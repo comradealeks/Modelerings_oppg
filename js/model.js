@@ -49,7 +49,10 @@ const model = {
         ageLimit: {from: 5, to: 15},
         points: 30,
         deadline: null,
-    }, {
+    },
+    //Kanskje legge inn om premien er for én preson eller flere? Og kanskje legge inn et felt
+    //så vi ser om premien er tatt? 
+    {
         Name: 'Cinema',
         ageLimit: {from: 13, to: 20},
         points: 100,
@@ -78,7 +81,7 @@ const model = {
             dueDate: 4,
             cost: 10,
             responsible: [1789, 4521],
-            done: false,
+            done: {status: false, byWho: null, when: null},
         },
         {
             Name: 'Lag middag',
@@ -87,7 +90,7 @@ const model = {
             dueDate: 1,
             cost: 20,
             responsible: [1789, 4521],
-            done: false,
+            done: {status: false, byWho: null, when: null},
         },
         {
             Name: 'Gå tur med bikkja',
@@ -96,7 +99,7 @@ const model = {
             dueDate: 4,
             cost: 15,
             responsible: [1789,4521],
-            done: false,
+            done: {status: false, byWho: null, when: null},
         },
     ],
 
@@ -142,12 +145,24 @@ const model = {
         color: '#000000',
     }],
     colorScheme: {
-        mainPage: {
-            calenderDays: '#ffd195',
-            calenderList: '#ffdfb5',
-            familyGoal: '#ffd000',
-            listHeadder: '#ffd195',
-            listList: '#ffdfb5',
+        light: {
+            mainPage: {
+                calenderDays: '#ffd195',
+                calenderList: '#ffdfb5',
+                familyGoal: '#ffd000',
+                listHeadder: '#ffd195',
+                listList: '#ffdfb5',
+            },
+        },
+        dark: {
+            mainPage: {
+                calenderDays: '#191919',
+                calenderList: '#2C2C2C',
+                familyGoal: '#964988',
+                listHeadder: '#191919',
+                listList: '#2C2C2C',
+            },
+
         },
     },
 };

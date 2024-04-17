@@ -3,36 +3,36 @@ input[type="text"] {
     height: auto;
     font-size: 16px;
     border-radius: 5px;
-    background-color: white; 
-    color: black; 
-    border: 2px solid #008CBA;
+    background-color: var(--input-background);
+    color: var(--input-text-color); 
+    border: var(--button-outline);
 }
 input[type="number"] {
     width: 35%;
     height: auto;
     font-size: 16px;
     border-radius: 5px;
-    background-color: white; 
-    color: black; 
-    border: 2px solid #008CBA;
+    background-color: var(--input-background);
+    color: var(--input-text-color);
+    border: var(--button-outline);
 }
 input[type="email"] {
     width: 35%;
     height: auto;
     font-size: 16px;
     border-radius: 5px;
-    background-color: white; 
-    color: black; 
-    border: 2px solid #008CBA;
+    background-color: var(--input-background);
+    color: var(--input-text-color);
+    border: var(--button-outline);
 }
 input[type="password"] {
     width: 35%;
     height: auto;
     font-size: 16px;
     border-radius: 5px;
-    background-color: white; 
-    color: black; 
-    border: 2px solid #008CBA;
+    background-color: var(--input-background); 
+    color: var(--input-text-color);
+    border: var(--button-outline);
 }
 input[type="color"] {
     width: 35%;
@@ -40,12 +40,12 @@ input[type="color"] {
     padding: none;
     font-size: 16px;
     border-radius: 5px;
-    background-color: white; 
-    color: black; 
-    border: 2px solid #008CBA;
+    background-color: var(--button-background);
+    color: var(--input-text-color);
+    border: var(--button-outline);
 }
 input[type="color"]:hover {
-    background-color: #008CBA;
+    background-color: var(--button-hover);
     color: white;
     cursor: pointer;
     font-size: 14px;
@@ -57,7 +57,7 @@ select {
     height: auto;
     font-size: 16px;
     border-radius: 5px;
-    background-color: white; 
-    color: black; 
-    border: 2px solid #008CBA;
+    background-color: var(--input-background);
+    color: var(--input-text-color);
+    border: var(--button-outline);
 }

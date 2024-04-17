@@ -43,7 +43,7 @@ function saveNewTask() {
             dueDate: model.inputs.addTask.dueDate,
             cost: model.inputs.addTask.cost,
             responsible: newRespTable,
-            done: false,
+            done: {status: false, byWho: null, when: null},
         })
         model.inputs.addTask.name = null;
         model.inputs.addTask.type = [];

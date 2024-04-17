@@ -3,10 +3,18 @@ function updateViewMainPage() {
         <button class="logoutButton" onclick="logout()">Logg ut</button>
         <h1 class="center">${model.app.name}</h1>
         <div class="center">Du er logget inn som ${model.inputs.login.username}</div>
+        <div class="calenderButton">
+            <button class="Button" onclick="updateViewCalender()">Måneds kalenderen</button>
+        </div>
         <div ${assignColor('mainPage', 'calenderList')}>${makeCalenderWeek()}</div>
         <div class="FamilyGoalMain" ${assignColor('mainPage', 'familyGoal')}>
             <div>Familiens mål er:</div>
             <div>Tomt</div>
+        </div>
+        <div class="MainButtons">
+            <button class="Button" onclick="">Full Oppgave Liste</button>
+            <button class="Button" onclick="">Full Bruker Liste</button>
+            <button class="Button" onclick="">Full Premie Liste</button>
         </div>
         <div class="ListDisplay">
             <div class="TaskList" ${assignColor('mainPage', 'listList')}>${listOfAllTasks()}</div>
@@ -63,12 +71,13 @@ function listOfAllTasks() {
     let taskListHtml = `<tr ${assignColor('mainPage', 'listHeadder')}><th class="ListHeadline">Oppgaver</th><th class="PointListHeadline">Poeng</th></tr>`;
     //Under legges bare oppgavene som er for den innlogga brukeren til (sånn vi vil ha det sikkert??):
     for (let task of allTasks) {
-        if (task.responsible.includes(findThePerson().id)) {
-            taskListHtml += `<tr><td class="lists">${task.Name}</td><td class="Pointlists">${task.cost}</td></tr>`
+        if (task.responsible.includes(findThePerson().id) && !task.done.status) {
+            taskListHtml += `<tr><td class="lists"><input type="checkbox" value="${task.Name}" onchange="grabThisTask(this.value)"/>${task.Name}</td><td class="Pointlists">${task.cost}</td></tr>`
         }
     }
     return `<table>${taskListHtml}</table>`
 }
+
 
 function listOfPrices() {
     let thePrices = model.prizes;
