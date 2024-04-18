@@ -12,9 +12,9 @@ function updateViewMainPage() {
             <div>Tomt</div>
         </div>
         <div class="MainButtons">
-            <button class="Button" onclick="">Full Oppgave Liste</button>
+            <button class="Button" onclick="gotoTaskList()">Full Oppgave Liste</button>
             <button class="Button" onclick="">Full Bruker Liste</button>
-            <button class="Button" onclick="">Full Premie Liste</button>
+            <button class="Button" onclick="gotoPriceList()">Full Premie Liste</button>
         </div>
         <div class="ListDisplay">
             <div class="TaskList" ${assignColor('mainPage', 'listList')}>${listOfAllTasks()}</div>

@@ -87,8 +87,14 @@
     display: flex;
     flex-wrap: wrap;
     flex-basis: 100%;
-    min-width: 600px;
+    min-width: 800px;
   }
+
+.MainCalenderSquares {
+    width: 100px;
+    height: 100px;
+    border: 2px solid black;
+}
 
 @media only screen and (max-width: 406px) {
     .calender {

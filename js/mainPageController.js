@@ -56,3 +56,13 @@ function grabThisPrize(thisPrize) {
     }
     updateView();
 }
+
+function gotoTaskList() {
+    model.app.currentPage = 'taskList';
+    updateView();
+}
+
+function gotoPriceList() {
+    model.app.currentPage = 'priceList';
+    updateView();
+}
