@@ -6,11 +6,8 @@ function findTypeFromUsername(thisUser)
     }
 }
 
-//18. april: hmmm?? det virker som om noe er feil med denne funksjonen 
-//eller kanskje med makeFullTaskList() eller findTaskIndexFromName(theName)
 function deleteTask(theTaskName) 
 {
-    console.log(theTaskName);
     let index = findTaskIndexFromName(theTaskName);
     model.tasks.splice(index,1);
     updateView();

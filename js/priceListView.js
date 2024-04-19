@@ -22,7 +22,7 @@ function makeFullPriceList()
             html += `<tr>
                         <td class="lists">${price.Name}</td>
                         <td class="Pointlists">${price.points}</td>
-                        <td><button class="Button" onclick="deletePrice(${price.Name})">Slett</button></td>
+                        <td><button class="Button" onclick="deletePrice(\`${price.Name}\`)">Slett</button></td>
                     </tr>`
         }
     }

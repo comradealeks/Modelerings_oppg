@@ -57,12 +57,20 @@ function grabThisPrize(thisPrize) {
     updateView();
 }
 
-function gotoTaskList() {
+function gotoTaskList() 
+{
     model.app.currentPage = 'taskList';
     updateView();
 }
 
-function gotoPriceList() {
+function gotoPriceList() 
+{
     model.app.currentPage = 'priceList';
+    updateView();
+}
+
+function goToUserList()
+{
+    model.app.currentPage = 'userList';
     updateView();
 }

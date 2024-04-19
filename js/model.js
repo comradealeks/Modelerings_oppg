@@ -144,25 +144,4 @@ const model = {
         points: 150,
         color: '#000000',
     }],
-    colorScheme: {
-        light: {
-            mainPage: {
-                calenderDays: '#ffd195',
-                calenderList: '#ffdfb5',
-                familyGoal: '#ffd000',
-                listHeadder: '#ffd195',
-                listList: '#ffdfb5',
-            },
-        },
-        dark: {
-            mainPage: {
-                calenderDays: '#191919',
-                calenderList: '#2C2C2C',
-                familyGoal: '#964988',
-                listHeadder: '#191919',
-                listList: '#2C2C2C',
-            },
-
-        },
-    },
 };

@@ -12,11 +12,12 @@
     border: 1px solid black;
     height: 30px;
     width: 100dvi;
+    background-color: var(--Calender-header-background);
 }
 .calender_task {
     border: 1px solid black;
     height: 160px;
-
+    background-color: var(--Calender-body-background);
     width: 100dvi;
 }
 .ListDisplay {
@@ -27,7 +28,10 @@
     border: 1px solid black;
     height: 30px;
     width: 100dvi;
+    background-color: var(--Calender-header-background);
 }
+
+
 .TaskList {
     border: 2px solid black;
     width: 100%;
@@ -35,6 +39,7 @@
     border-collapse: collapse;
     border-radius: 4px;
     overflow: auto;
+    background-color: var(--Calender-body-background);
 }
 .UserList {
     border: 2px solid black;
@@ -43,6 +48,7 @@
     border-collapse: collapse;
     border-radius: 4px;
     overflow: auto;
+    background-color: var(--Calender-body-background);
 }
 .PrizeList {
     border: 2px solid black;
@@ -51,22 +57,26 @@
     border-collapse: collapse;
     border-radius: 4px;
     overflow: auto;
+    background-color: var(--Calender-body-background);
 }
 .PointListHeadline {
     flex-direction: row-reverse;
     border: 1px solid black;
     height: 30px;
     width: 100px;
+    background-color: var(--Calender-header-background);
 }
 .Pointlists {
     border: 1px solid black;
     overflow: auto;
     width: 100px;
+    background-color: var(--Calender-body-background);
 }
 .lists {
     border: 1px solid black;
     overflow: auto;
     width: 1000dvi;
+    background-color: var(--Calender-body-background);
 }
 .NewTaskList {
     border: 2px solid #008CBA;
@@ -77,6 +87,7 @@
     width: 200px;
     margin: 0 auto;
     margin-bottom: 5px;
+    background-color: var(--Calender-body-background);
 }
 .MainCalender {
     display: flex;
