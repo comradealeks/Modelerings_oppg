@@ -89,23 +89,34 @@
     margin-bottom: 5px;
     background-color: var(--Calender-body-background);
 }
+.MainCalenderFlexWithButtons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
 .MainCalender {
     display: flex;
     flex-wrap: wrap;
   }
   
-  .MainCalender > div {
-    display: flex;
-    flex-wrap: wrap;
-    flex-basis: 100%;
-    min-width: 800px;
-  }
+    .MainCalender > div {
+        display: flex;
+        flex-wrap: wrap;
+        flex-basis: 100%;
+        min-width: 800px;
+        justify-content: center;
+        align-items: center;
+    }
 
-.MainCalenderSquares {
-    width: 100px;
-    height: 100px;
-    border: 2px solid black;
-}
+    .MainCalenderSquares {
+        width: 100px;
+        height: 100px;
+        border: 2px solid black;
+    }
+
+
+
 
 @media only screen and (max-width: 406px) {
     .calender {

@@ -2,13 +2,12 @@ function updateViewNewTask() {
     document.getElementById("Model").innerHTML = /*HTML*/`
         <button class="logoutButton" onclick="backToMain()">Tilbake</button>
         <div class="center">
-            <h1>${model.app.name}</h1>
-            
+            <h1>${model.app.name}</h1>            
             Navn på oppgave:<br/>
             <input
                 type = "text"
                 onchange = "model.inputs.addTask.name = this.value"
-                value = "" 
+                value = "${model.inputs.addTask.name ?? ''}" 
             /><br/>
             Hvor ofte skal oppgaven utføres?<br/>
             <select onchange="model.inputs.addTask.type.push(this.value)">
@@ -42,7 +41,7 @@ function updateViewNewTask() {
             <input
                 type = "number"
                 onchange = "model.inputs.addTask.cost = this.value"
-                value = "" 
+                value = "${model.inputs.addTask.cost ?? ''}"
             /><br/>
             <div> Ansvarlige for oppgaven (valgfritt):</div>
             <div class="NewTaskList">

@@ -21,6 +21,13 @@ function personAgeFitsTask(age,task) {
     return false;
 }
 
+function priceFitsPerson(thePrice) {
+    let thePerson = findThePerson();
+    if (thePerson.age<thePrice.ageLimit.from || thePerson.age>thePrice.ageLimit.to) return false;
+    if (thePrice.forOnePerson && thePrice.registered.length == 1) return false;
+    return true;
+}
+
 function grabThisTask(thisTask) {
     let thePerson = findThePerson();
     let theIndex = -1;
@@ -51,7 +58,7 @@ function grabThisPrize(thisPrize) {
     for (let j=0;j<model.users.length;j++) {
         if (model.users[i].id == thePerson.id && model.users[i].points >= model.prizes[theIndex].points) {
             model.users[i].points = model.users[i].points - model.prizes[theIndex].points;
-            //må få lagt inn at premien nå er tatt
+            model.prizes[theIndex].registered.push(thePerson.id)
         }
     }
     updateView();

@@ -7,7 +7,7 @@ function updateViewNewPrice() {
             <input
                 type = "text"
                 onchange = "model.inputs.addPrize.Name = this.value"
-                value = "" 
+                value = "${model.inputs.addPrize.Name ?? ''}" 
             /><br/>
             Aldersgrense (Valgfritt):<br/>
             Fra:
@@ -30,7 +30,7 @@ function updateViewNewPrice() {
             <input
                 type = "number"
                 onchange = "model.inputs.addPrize.points = this.value"
-                value = "" 
+                value = "${model.inputs.addPrize.points ?? ''}" 
             /><br/>
             Er premien for en spesifikk dag (Valgfritt)?<br/>
             <select onchange="model.inputs.addPrize.deadline = this.value">

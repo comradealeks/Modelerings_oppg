@@ -6,6 +6,8 @@ function updateViewPriceList() {
     `
 }
 
+//kanskje legge inn en kolonne med de som har tatt premien / meldt seg på premien? Funksjonen
+//function priceParticipants(thePrice) bør gjøre jobben
 function makeFullPriceList() 
 {
     let html = '';
@@ -41,4 +43,22 @@ function makeFullPriceList()
         }    
     }
     return `<table>${html}</table>`
+}
+
+function priceParticipants(thePrice) {
+    let theText = '';
+    if (thePrice.registered.length == 1) 
+    {
+        theText += findUsernameByPersonId(thePrice.registered[0])
+    }
+    else if (thePrice.registered.length > 1) 
+    {
+        theText += findUsernameByPersonId(thePrice.registered[0])
+        for (let i=1; i<thePrice.registered.length-1;i++)
+        {
+            theText += ', '+findUsernameByPersonId(thePrice.registered[i])
+        }
+        theText += ' og '+findUsernameByPersonId(thePrice.registered[thePrice.registered.length-1])
+    }
+    return `<td class="lists">${theText}</td>`
 }

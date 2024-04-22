@@ -1,3 +1,5 @@
+var currentMonth = 0
+var currentYear = 0
 function calenderCreate() {
     //this creates a main containers for the calender
     let rectangleWidth = 100;
@@ -6,10 +8,6 @@ function calenderCreate() {
     //here is some variables that finds out what days should bleed into the current month showcase
     let EndMonth = 0;
     let weekIndex = -1;
-
-    let currentMonth = 0
-    let currentYear = 0
-
 
     let year = BetterDateCalculation('year', currentYear)
     let month = BetterDateCalculation('month', currentMonth)
@@ -26,7 +24,7 @@ function calenderCreate() {
         weekIndex++;
         if (weekIndex > 7 || weekIndex == 0) {
             container = document.createElement('div');
-            container.style.width = rectangleWidth + 'px'; 
+            container.style.width = rectangleWidth + 'px';
 
             container.id = 'week_nr: ' + BetterDateCalculation('week', 0, year, month[1] - 1, index)
             weekIndex = 1;
@@ -96,7 +94,6 @@ function BetterDateCalculation(type, difference, year, month, day) {
         let startOfMonth = new Date(date.getFullYear(), date.getMonth(), 1)
         let FirstDayNumber = startOfMonth.getDay()
         if (isLeapYear(date.getFullYear()) && months[date.getMonth()][0] == "Februar") {
-            console.log('leap')
             MonthNumber = months[date.getMonth()][2]
         } else {
             MonthNumber = months[date.getMonth()][1]
@@ -145,3 +142,61 @@ function isLeapYear(year) {
       return false;
     }
   }
+function changeMonth(direction) {
+  if (direction == 'forwards') {
+    if (BetterDateCalculation('month', currentMonth)[0] == 'Desember') {
+      currentYear++
+    }
+    currentMonth++
+  } else if (direction == 'backwards'){
+    if (BetterDateCalculation('month', currentMonth)[0] == 'Januar') {
+      currentYear--
+    }
+    currentMonth--
+  } else {
+    currentMonth = parseInt(direction);
+  }
+
+  updateViewCalender()
+}
+function calculateMonthNumber(Month) {
+  let monthCalculus = [
+    ["Januar", null],
+    ["Februar", null],
+    ["Mars", null],
+    ["April", null],
+    ["Mai", null],
+    ["Juni", null],
+    ["Juli", null],
+    ["August", null],
+    ["September", null],
+    ["Oktober", null],
+    ["November", null],
+    ["Desember", null],
+  ];
+  let ThisMonth = BetterDateCalculation('month', 0)[0];
+  let currentMonthIndex = monthCalculus.findIndex((month) => month[0] === ThisMonth);
+
+  let startNumber = 0;
+  if (currentYear < 0) {
+    ThisMonth = 'Desember';
+    startNumber = (currentYear * 12) + (12 - (currentMonthIndex + 1));
+  } else if (currentYear > 0) {
+    ThisMonth = 'Januar';
+    startNumber =  (currentYear * 12) - currentMonthIndex;
+  }
+  currentMonthIndex = monthCalculus.findIndex((month) => month[0] === ThisMonth);
+
+  for (let index = 0; index < monthCalculus.length; index++) {
+    if (index == currentMonthIndex) {
+      monthCalculus[index][1] = startNumber;
+    } else if (index < currentMonthIndex) {
+      monthCalculus[index][1] = -(currentMonthIndex - (startNumber + index));
+    } else {
+      monthCalculus[index][1] = (startNumber + index) - currentMonthIndex;
+    }
+  }
+  return monthCalculus; //[monthCalculus.findIndex((month) => month[0] === Month)];
+
+}
+  

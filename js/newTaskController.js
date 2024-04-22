@@ -3,15 +3,15 @@ function saveNewTask() {
     model.inputs.addTask.errorMessage = null;
     if (model.inputs.addTask.name == null) {
         errors = 1;
-        model.inputs.addTask.errorMessage = 'You have to enter a name for the task'
+        model.inputs.addTask.errorMessage = 'Du må skrive inn et navn for oppgaven'
     }
     if (model.inputs.addTask.cost == null) {
         errors = 1;
-        model.inputs.addTask.errorMessage = 'You have to give points for the task'
+        model.inputs.addTask.errorMessage = 'Du må angi poeng for oppgaven'
     }
     if (model.inputs.addTask.type.length == 0) {
         errors = 1;
-        model.inputs.addTask.errorMessage = 'Please choose how often the task should be done'
+        model.inputs.addTask.errorMessage = 'Du må velge hvor ofte oppgaven skal utføres'
     }
     
     if (errors == 0) {

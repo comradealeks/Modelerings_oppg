@@ -17,3 +17,11 @@ function findPriceIndexFromName(theName)
     }
     return theIndex;
 }
+
+function findUsernameByPersonId(theID) 
+{
+    for (let user of model.users)
+    {
+        if (user.id == theID) return user.username
+    }
+}
