@@ -24,11 +24,14 @@ function saveNewPrize() {
             ageLimit: {from: model.inputs.addPrize.ageLimit.from, to: model.inputs.addPrize.ageLimit.to},
             points: model.inputs.addPrize.points,
             deadline: model.inputs.addPrize.deadline,
+            forOnePerson: model.inputs.addPrize.forOnePerson,
+            registered: [],
         })
         model.inputs.addPrize.Name = null;
         model.inputs.addPrize.ageLimit = {from: null, to: null};
         model.inputs.addPrize.points = null;
         model.inputs.addPrize.deadline = null;
+        model.inputs.addPrize.forOnePerson = null;
 
         model.app.currentPage = 'mainPage';
         updateView();
@@ -36,5 +39,17 @@ function saveNewPrize() {
     else {
         model.app.currentPage = 'newPrice';
         updateView();
+    }
+}
+
+function prizeType(value) 
+{
+    if (value == 'For én person') 
+    {
+        model.inputs.addPrize.forOnePerson = true;
+    }
+    else 
+    {
+        model.inputs.addPrize.forOnePerson = false;
     }
 }

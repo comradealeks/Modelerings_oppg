@@ -1,4 +1,5 @@
-function updateViewUserList() {
+function updateViewUserList() 
+{
     document.getElementById("Model").innerHTML = /*HTML*/`
         <button class="logoutButton" onclick="backToMain()">Tilbake</button>
         <h1 class="center">${model.app.name}</h1>

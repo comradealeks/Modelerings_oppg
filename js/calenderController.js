@@ -31,22 +31,40 @@ function calenderCreate() {
         }
         //this part makes a new div under the week, each week has 7 divs, and a month has 35 divs (including some of month before or after)
         let div = document.createElement('div');
-        div.classList = 'MainCalenderSquares';
+        
         
         //this part makes sure that if the month starts on another day than monday, or ends on another day then sunday, then the calender will take from the other months to fill inn.
         if (startOfWeekLastMonth < LastMonth[2]) {
             startOfWeekLastMonth++;
             div.textContent = startOfWeekLastMonth;
-            div.style.color = 'grey';
             div.id = startOfWeekLastMonth + '.' + LastMonth[1] + '.' + year //might have to change year
+            if (weekIndex >= 6) {
+              div.classList = 'MainCalenderSquares calenderWeekendOtherMonth';
+            } else {
+              div.classList = 'MainCalenderSquares otherMonth'
+            }
         } else if (index > month[2]) {
             EndMonth++;
             div.id = EndMonth + '.' + BetterDateCalculation('month', currentMonth + 1)[1] + '.' + year //might have to change year
             div.textContent = EndMonth;
-            div.style.color = 'grey';
+            
+            if (weekIndex >= 6) {
+              div.classList = 'MainCalenderSquares calenderWeekendOtherMonth';
+            } else {
+              div.classList = 'MainCalenderSquares otherMonth'
+            }
         } else {
             div.textContent = index;
-            div.id = index + '.' + month[1] + '.' + year //might have to change year
+            div.id = index + '.' + month[1] + '.' + year
+            if (index == BetterDateCalculation('day', 0)[1] && month[1] == BetterDateCalculation('month', 0)[1] && year == BetterDateCalculation('year', 0)) {
+              div.classList = 'MainCalenderSquares calenderCurrentDay'
+            } else {
+              if (weekIndex >= 6) {
+                div.classList = 'MainCalenderSquares calenderWeekend';
+              } else {
+                div.classList = 'MainCalenderSquares';
+              }
+            }
         }
         //nests everything together
         container.appendChild(div);
@@ -197,6 +215,19 @@ function calculateMonthNumber(Month) {
     }
   }
   return monthCalculus; //[monthCalculus.findIndex((month) => month[0] === Month)];
-
 }
-  
+function changeYear(direction) {
+  if (direction == 'forwards') {
+    currentYear++
+  } else if (direction == 'backwards'){
+    currentYear--
+  } else {
+    currentYear = parseInt(-(2024 - direction));
+  }
+  currentMonth = parseInt(calculateMonthNumber()[0][1])
+  updateViewCalender()
+}
+
+function DaySelection(){
+  // click a day and the day comes up and is selected.
+}

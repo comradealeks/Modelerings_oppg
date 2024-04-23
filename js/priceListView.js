@@ -6,8 +6,6 @@ function updateViewPriceList() {
     `
 }
 
-//kanskje legge inn en kolonne med de som har tatt premien / meldt seg på premien? Funksjonen
-//function priceParticipants(thePrice) bør gjøre jobben
 function makeFullPriceList() 
 {
     let html = '';
@@ -17,6 +15,7 @@ function makeFullPriceList()
         html += `<tr>
                     <th class="ListHeadline">Premier</th>
                     <th class="PointListHeadline">Poeng</th>
+                    <th class="ListHeadline">Har tatt premien</th>
                     <th class="ListHeadline">Slett premien</th>
                 </tr>`
         for (let price of model.prizes) 
@@ -24,7 +23,8 @@ function makeFullPriceList()
             html += `<tr>
                         <td class="lists">${price.Name}</td>
                         <td class="Pointlists">${price.points}</td>
-                        <td><button class="Button" onclick="deletePrice(\`${price.Name}\`)">Slett</button></td>
+                        ${priceParticipants(price)}
+                        <td class="lists"><button class="Button" onclick="deletePrice(\`${price.Name}\`)">Slett</button></td>
                     </tr>`
         }
     }
@@ -33,12 +33,14 @@ function makeFullPriceList()
         html += `<tr>
                     <th class="ListHeadline">Premier</th>
                     <th class="PointListHeadline">Poeng</th>
+                    <th class="ListHeadline">Har tatt premien</th>
                 </tr>`
         for (let price of model.prizes) 
         {
             html += `<tr>
                         <td class="lists">${price.Name}</td>
                         <td class="Pointlists">${price.points}</td>
+                        ${priceParticipants(price)}
                     </tr>`        
         }    
     }

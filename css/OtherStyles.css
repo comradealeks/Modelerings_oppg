@@ -29,6 +29,21 @@
     --family-goal-background: #ffd000;
     --Calender-header-background: #ffd195;
     --Calender-body-background: #ffdfb5;
+
+    --MainCalenderDaysColor: rgb(0, 0, 0);
+    --MainCalenderDaysBackground: rgb(0, 223, 223);
+    --MainCalenderSquareNormal:  rgb(177, 255, 255);
+    --MainCalenderSquareHover:  rgb(131, 255, 255);
+    --MainCalenderSquareClicked:  rgb(0, 255, 255);
+    --MainCalenderSquareborder: 2px solid black;
+
+    --OtherMonthColor: grey;
+    --OtherMonthBackgroundColor:rgb(209, 253, 253);;
+
+    --WeekendOtherMonthColor: grey;
+    --WeekendOtherMonthBackgroundColor: rgb(255, 205, 205);
+    --Weekend: rgb(255, 174, 174);
+    --CurrentDay: rgb(131, 255, 255);
     
   }
   body {
@@ -49,7 +64,21 @@
     --family-goal-background: #964988;
     --Calender-header-background: #191919;
     --Calender-body-background: #2C2C2C;
-    
+
+    --MainCalenderDaysColor: rgb(255, 255, 255);
+    --MainCalenderDaysBackground: #52284a;
+    --MainCalenderSquareNormal:  #964988;
+    --MainCalenderSquareHover:  #8a387b;
+    --MainCalenderSquareClicked:  #68235b;
+    --MainCalenderSquareborder: 2px solid black;
+
+    --OtherMonthColor: rgb(173, 173, 173);
+    --OtherMonthBackgroundColor:#743e6a;
+
+    --WeekendOtherMonthColor: rgb(173, 173, 173);
+    --WeekendOtherMonthBackgroundColor: #613058;
+    --Weekend: #52284a;
+    --CurrentDay: #8a387b;
   }
 .test {
   background-color: #964988;
@@ -58,12 +87,3 @@
 @media only screen and (max-width: 406px) {
 
 }
-/*
-border: var(--button-outline);
-color: var(--button-text);
-background-color: var(--button-hover);
-color: var(--button-hover-text);
-
-background-color: var(--input-background);
-color: var(--input-text-color);
-*/

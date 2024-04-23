@@ -32,6 +32,12 @@ function updateViewNewPrice() {
                 onchange = "model.inputs.addPrize.points = this.value"
                 value = "${model.inputs.addPrize.points ?? ''}" 
             /><br/>
+            Er premien for én person eller for flere (hele familien)?<br/>
+            <select onchange="prizeType(this.value)">
+                <option selected disable hidden>Gjør ditt valg</option>
+                <option>For én person</option>
+                <option>For flere personer</option>
+            </select><br/>
             Er premien for en spesifikk dag (Valgfritt)?<br/>
             <select onchange="model.inputs.addPrize.deadline = this.value">
                 <option selected disabled hidden>ingen</option>

@@ -69,8 +69,10 @@ function listOfAllTasks() {
     let allTasks = model.tasks;
     allTasks.sort(function(a,b) {return b.cost - a.cost;});
     let taskListHtml = `<tr><th class="ListHeadline">Oppgaver</th><th class="PointListHeadline">Poeng</th></tr>`;
-    for (let task of allTasks) {
-        if (task.responsible.includes(findThePerson().id) && !task.done.status) {
+    for (let task of allTasks) 
+    {
+        if (task.responsible.includes(findThePerson().id) && !task.done.status) 
+        {
             taskListHtml += `<tr><td class="lists"><input type="checkbox" value="${task.Name}" onchange="grabThisTask(this.value)"/>${task.Name}</td><td class="Pointlists">${task.cost}</td></tr>`
         }
     }
@@ -82,9 +84,12 @@ function listOfPrices() {
     let thePrices = model.prizes;
     thePrices.sort(function(a,b) {return b.points - a.points;});
     let pricesHtml = `<tr><th class="ListHeadline">Premier</th><th class="PointListHeadline">Poeng</th></tr>`;
-    //Har laget funksjonen priceFitsPerson(thePrice) som kan brukes under
-    for (let price of thePrices) {
-        pricesHtml += `<tr><td class="lists">${price.Name}</td><td class="Pointlists">${price.points}</td></tr>`
+    for (let price of thePrices) 
+    {
+        if (priceFitsPerson(price)) 
+        {
+            pricesHtml += `<tr><td class="lists"><input type="checkbox" value="${price.Name}" onchange="grabThisPrize(this.value)"/>${price.Name}</td><td class="Pointlists">${price.points}</td></tr>`
+        }       
     }
     return `<table>${pricesHtml}</table>`
 }

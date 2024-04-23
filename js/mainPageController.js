@@ -23,6 +23,7 @@ function personAgeFitsTask(age,task) {
 
 function priceFitsPerson(thePrice) {
     let thePerson = findThePerson();
+    if (thePrice.registered.includes(thePerson.id)) return false;
     if (thePerson.age<thePrice.ageLimit.from || thePerson.age>thePrice.ageLimit.to) return false;
     if (thePrice.forOnePerson && thePrice.registered.length == 1) return false;
     return true;
@@ -50,15 +51,19 @@ function grabThisTask(thisTask) {
 function grabThisPrize(thisPrize) {
     let thePerson = findThePerson();
     let theIndex = -1;
-    for (let i=0;i<model.prizes.length;i++) {
-        if (model.prizes[i].Name == thisPrize) {
+    for (let i=0;i<model.prizes.length;i++) 
+    {
+        if (model.prizes[i].Name == thisPrize) 
+        {
             theIndex = i;
         }
     }
-    for (let j=0;j<model.users.length;j++) {
-        if (model.users[i].id == thePerson.id && model.users[i].points >= model.prizes[theIndex].points) {
-            model.users[i].points = model.users[i].points - model.prizes[theIndex].points;
-            model.prizes[theIndex].registered.push(thePerson.id)
+    for (let j=0;j<model.users.length;j++) 
+    {
+        if (model.users[j].id == thePerson.id && model.users[j].points >= model.prizes[theIndex].points) 
+        {
+            model.users[j].points = model.users[j].points - model.prizes[theIndex].points;
+            model.prizes[theIndex].registered.push(thePerson.id);
         }
     }
     updateView();

@@ -41,6 +41,7 @@ const model = {
             ageLimit: {from: null, to: null},
             points: null,
             deadline: null,
+            forOnePerson: null,
             errorMessage: null,
         },
     },    
@@ -52,15 +53,13 @@ const model = {
         forOnePerson: false,
         registered: [],
     },
-    //Kanskje legge inn om premien er for én preson eller flere? Og kanskje legge inn et felt
-    //så vi ser om premien er tatt? 
     {
         Name: 'Cinema',
         ageLimit: {from: 0, to: 120},
         points: 100,
         deadline: null,
         forOnePerson: false,
-        registered: [],
+        registered: [1789,1311],
     },
     {
         Name: 'Sjokoladebit',
@@ -129,7 +128,7 @@ const model = {
         username: 'AleksiosMaximanus',
         age: 20,
         email: 'aagledal@gmail.com',
-        points: 23,
+        points: 90,
         color: '#0008ff',
     }, {
         id: 1111,

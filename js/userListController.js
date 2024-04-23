@@ -2,6 +2,10 @@ function deleteUser(theUsername)
 {
     let index = findUserIndexFromUsername(theUsername);
     model.users.splice(index,1);
+    if (model.inputs.login.username == theUsername)
+    {
+        model.app.currentPage = 'userLogin';
+    }
     updateView();
 }
 
