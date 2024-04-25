@@ -1,10 +1,11 @@
-function updateViewMainPage() {
+function updateViewMainPage() 
+{
     document.getElementById("Model").innerHTML = /*HTML*/`
         <button class="logoutButton" onclick="logout()">Logg ut</button>
         <h1 class="center">${model.app.name}</h1>
         <div class="center">Du er logget inn som ${model.inputs.login.username}</div>
         <div class="calenderButton">
-            <button class="Button" onclick="updateViewCalender()">Måneds kalenderen</button>
+            <button class="Button" onclick="goToCalender()">Måneds kalenderen</button>
         </div>
         <div>${makeCalenderWeek()}</div>
         <div class="FamilyGoalMain" }>
@@ -22,9 +23,9 @@ function updateViewMainPage() {
             <div class="PrizeList">${listOfPrices()}</div>
         </div>
         <div class="MainButtons">
-            <button class="Button" onclick="updateViewNewTask()">Ny oppgave</button>
-            <button class="Button" onclick="updateViewSettings()">Instillinger</button>
-            <button class="Button" onclick="updateViewNewPrice()">Ny premie</button>
+            <button class="Button" onclick="goToNewTask()">Ny oppgave</button>
+            <button class="Button" onclick="goToSettings()">Instillinger</button>
+            <button class="Button" onclick="goToNewPrice()">Ny premie</button>
         </div>
     `
 }

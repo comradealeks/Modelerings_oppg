@@ -86,3 +86,27 @@ function goToUserList()
     model.app.currentPage = 'userList';
     updateView();
 }
+
+function goToCalender()
+{
+    model.app.currentPage = 'calender';
+    updateView();
+}
+
+function goToNewTask()
+{
+    model.app.currentPage = 'newTask';
+    updateView();
+}
+
+function goToSettings()
+{
+    model.app.currentPage = 'settings';
+    updateView();
+}
+
+function goToNewPrice()
+{
+    model.app.currentPage = 'newPrice';
+    updateView();
+}

@@ -8,3 +8,8 @@ function login() {
     model.inputs.login.errorMessage = 'Feil brukernavn eller passord. Prøv igjen.';
     updateView();
 }
+
+function goToNewUser() {
+    model.app.currentPage = 'newUser';
+    updateView();
+}

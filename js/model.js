@@ -87,7 +87,7 @@ const model = {
             ageLimit: {from: 10, to: 20},
             dueDate: 4,
             cost: 10,
-            responsible: [1789, 4521],
+            responsible: [1,2],
             done: {status: false, byWho: null, when: null},
         },
         {
@@ -96,7 +96,7 @@ const model = {
             ageLimit: {from: 10, to: 20},
             dueDate: 1,
             cost: 20,
-            responsible: [1789, 4521],
+            responsible: [1,2],
             done: {status: false, byWho: null, when: null},
         },
         {
@@ -105,13 +105,13 @@ const model = {
             ageLimit: {from: 10, to: 20},
             dueDate: 4,
             cost: 15,
-            responsible: [1789,4521],
+            responsible: [1,2],
             done: {status: false, byWho: null, when: null},
         },
     ],
 
     users: [{
-        id: 1789,
+        id: 1,
         type: 'adult',
         name: 'Kalle Klovn',
         password: 'abc123',
@@ -121,7 +121,7 @@ const model = {
         points: 13,
         color: '#000000',
     }, {
-        id: 4521,
+        id: 2,
         type: 'superuser',
         name: 'Aleksander Agledal',
         password: 'DwarfStarConqurer27',
@@ -131,7 +131,7 @@ const model = {
         points: 90,
         color: '#0008ff',
     }, {
-        id: 1111,
+        id: 3,
         type: 'superuser',
         name: '1',
         password: '1',
@@ -141,7 +141,7 @@ const model = {
         points: 1,
         color: '#000000',
     }, {
-        id: 1311,
+        id: 4,
         type: 'superuser',
         name: 'Donald Duck',
         password: 'daff',

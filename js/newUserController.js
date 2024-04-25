@@ -1,7 +1,3 @@
-function goToNewUser() {
-    model.app.currentPage = 'newUser';
-    updateView();
-}
 function SaveNewUser(){
     let error = 0;
     model.inputs.register.errorMessage = null
@@ -34,7 +30,9 @@ function SaveNewUser(){
     if (error == 0){
         //mangler å legge inn id under her:
         userList = model.users
+        let newId = makeNewUserId();
         userList.push({
+            id: newId,
             type: model.inputs.register.type,
             name: model.inputs.register.name,
             password: model.inputs.register.password,
@@ -64,16 +62,6 @@ function hasWhiteSpace(s) {
     }
     return false;}
 
-// {
-//     id: 1789,
-//     type: 'adult',
-//     name: 'Kalle Klovn',
-//     password: 'abc123',
-//     username: 'theClown',
-//     email: 'karl.morten.lunna@gmail.com',
-// }
-
-
 
 function testEmail(txt) {
     let charachters = txt.split('')
@@ -95,4 +83,10 @@ function testEmail(txt) {
         else return false
     }
     else return false
+}
+
+function makeNewUserId()
+{
+    let highestId = model.users[model.users.length - 1].id;
+    return (highestId + 1);
 }
