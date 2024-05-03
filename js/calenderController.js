@@ -16,62 +16,96 @@ function calenderCreate() {
     let startOfWeekLastMonth = LastMonth[2] - month[3]
     let difference = startOfWeekLastMonth - LastMonth[2];
 
+    let day = BetterDateCalculation('day', 0)[2]
+
     //forloop to create the calender
     for (let index = difference; index <= 42 + difference; index ++) {
-        if (index == 0) {index = 1;};
+      
+      if (index == 0) {index = 1;};
 
-        //this part splits the days into weeks for visuals
-        weekIndex++;
-        if (weekIndex > 7 || weekIndex == 0) {
-            container = document.createElement('div');
-            container.style.width = rectangleWidth + 'px';
+      //this part splits the days into weeks for visuals
+      weekIndex++;
+      if (weekIndex > 7 || weekIndex == 0) {
+          container = document.createElement('div');
+          container.style.width = rectangleWidth + 'px';
 
-            container.id = 'week_nr: ' + BetterDateCalculation('week', 0, year, month[1] - 1, index)
-            weekIndex = 1;
-        }
-        //this part makes a new div under the week, each week has 7 divs, and a month has 35 divs (including some of month before or after)
-        let div = document.createElement('div');
-        
-        
-        //this part makes sure that if the month starts on another day than monday, or ends on another day then sunday, then the calender will take from the other months to fill inn.
-        if (startOfWeekLastMonth < LastMonth[2]) {
-            startOfWeekLastMonth++;
-            div.textContent = startOfWeekLastMonth;
-            div.id = startOfWeekLastMonth + '.' + LastMonth[1] + '.' + year //might have to change year
+          container.id = 'week_nr: ' + BetterDateCalculation('week', 0, year, month[1] - 1, index)
+          weekIndex = 1;
+      }
+      //this part makes a new div under the week, each week has 7 divs, and a month has 35 divs (including some of month before or after)
+      let div = document.createElement('div');
+      
+      
+      //this part makes sure that if the month starts on another day than monday, or ends on another day then sunday, then the calender will take from the other months to fill inn.
+      if (startOfWeekLastMonth < LastMonth[2]) {
+          startOfWeekLastMonth++;
+          div.textContent = startOfWeekLastMonth;
+          div.id = startOfWeekLastMonth + '.' + LastMonth[1] + '.' + year //might have to change year
+          if (weekIndex >= 6) {
+            div.classList = 'MainCalenderSquares calenderWeekendOtherMonth';
+          } else {
+            div.classList = 'MainCalenderSquares otherMonth'
+          }
+      } else if (index > month[2]) {
+          EndMonth++;
+          div.id = EndMonth + '.' + BetterDateCalculation('month', currentMonth + 1)[1] + '.' + year //might have to change year
+          div.textContent = EndMonth;
+          
+          if (weekIndex >= 6) {
+            div.classList = 'MainCalenderSquares calenderWeekendOtherMonth';
+          } else {
+            div.classList = 'MainCalenderSquares otherMonth'
+          }
+      } else {
+          div.textContent = index;
+          div.id = index + '.' + month[1] + '.' + year
+          if (index == BetterDateCalculation('day', 0)[1] && month[1] == BetterDateCalculation('month', 0)[1] && year == BetterDateCalculation('year', 0)) {
+            div.classList = 'MainCalenderSquares calenderCurrentDay'
+          } else {
             if (weekIndex >= 6) {
-              div.classList = 'MainCalenderSquares calenderWeekendOtherMonth';
+              div.classList = 'MainCalenderSquares calenderWeekend';
             } else {
-              div.classList = 'MainCalenderSquares otherMonth'
+              div.classList = 'MainCalenderSquares';
             }
-        } else if (index > month[2]) {
-            EndMonth++;
-            div.id = EndMonth + '.' + BetterDateCalculation('month', currentMonth + 1)[1] + '.' + year //might have to change year
-            div.textContent = EndMonth;
-            
-            if (weekIndex >= 6) {
-              div.classList = 'MainCalenderSquares calenderWeekendOtherMonth';
-            } else {
-              div.classList = 'MainCalenderSquares otherMonth'
-            }
-        } else {
-            div.textContent = index;
-            div.id = index + '.' + month[1] + '.' + year
-            if (index == BetterDateCalculation('day', 0)[1] && month[1] == BetterDateCalculation('month', 0)[1] && year == BetterDateCalculation('year', 0)) {
-              div.classList = 'MainCalenderSquares calenderCurrentDay'
-            } else {
-              if (weekIndex >= 6) {
-                div.classList = 'MainCalenderSquares calenderWeekend';
-              } else {
-                div.classList = 'MainCalenderSquares';
-              }
-            }
-        }
-        //nests everything together
-        container.appendChild(div);
-        main.appendChild(container);
+          }
+      }
+      if (index == 1) {
+        day = day - 4
+      }
+  
+
+      Task = TaskForDay(day);
+      let div2 = document.createElement('div');
+      div2.textContent = Task;
+      if (day == 6) {day = 0}
+      else{day++}
+
+      //nests everything together
+      div.appendChild(div2);
+      container.appendChild(div);
+      main.appendChild(container);
     }
     return main;
 }
+
+function TaskForDay(day) {
+  dayOfWeek = day
+  let tasksToDo = model.tasks;
+  let theLoggedIn = findThePerson();
+  let cellHtml = '';
+  for (let k = 0; k < tasksToDo.length; k++) {
+      if (taskMatchesDayAndPerson(dayOfWeek, theLoggedIn.id, tasksToDo[k]) && personAgeFitsTask(theLoggedIn.age, tasksToDo[k])) {
+          cellHtml += `${tasksToDo[k].Name}, `
+      }
+  }
+  console.log(cellHtml)
+  return cellHtml
+}
+
+
+
+
+
 //Type = 'day', 'week' 'month', 'year' 
 // difference = pos or neg number
 function BetterDateCalculation(type, difference, year, month, day) { 
