@@ -66,12 +66,35 @@ function calenderCreate() {
               }
             }
         }
+        Task = TaskForDay(index);
+        let div2 = document.createElement('div');
+        div2.textContent = Task;
+
         //nests everything together
+        div.appendChild(div2);
         container.appendChild(div);
         main.appendChild(container);
     }
     return main;
 }
+
+function TaskForDay(diff) {
+  dayOfWeek = BetterDateCalculation('day', diff - 3)[2]
+  let tasksToDo = model.tasks;
+  let theLoggedIn = findThePerson();
+  let cellHtml = '';
+  for (let k = 0; k < tasksToDo.length; k++) {
+      if (taskMatchesDayAndPerson((dayOfWeek), theLoggedIn.id, tasksToDo[k]) && personAgeFitsTask(theLoggedIn.age, tasksToDo[k])) {
+          cellHtml += `${tasksToDo[k].Name}, `
+      }
+  }
+  return cellHtml
+}
+
+
+
+
+
 //Type = 'day', 'week' 'month', 'year' 
 // difference = pos or neg number
 function BetterDateCalculation(type, difference, year, month, day) { 
