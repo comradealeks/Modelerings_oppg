@@ -81,9 +81,29 @@
     --CurrentDay: #8a387b;
   }
 .test {
-  background-color: #964988;
+  background-color: #FF5F1F ;
+  background-color: #FF8C00 ;
+  background-color: #FFA500 ;
 }
 
 @media only screen and (max-width: 406px) {
 
 }
+
+/*
+    --MainCalenderDaysColor: rgb(255, 255, 255);
+    --MainCalenderDaysBackground: #ff5917;
+    --MainCalenderSquareNormal:  #FF8C00;
+    --MainCalenderSquareHover:  #FFA500;
+    --MainCalenderSquareClicked:  #68235b;
+    --MainCalenderSquareborder: 2px solid black;
+
+    --OtherMonthColor: rgb(211, 211, 211);
+    --OtherMonthBackgroundColor:#d87700;
+
+    --WeekendOtherMonthColor: rgb(219, 219, 219);
+    --WeekendOtherMonthBackgroundColor: #d34e19;
+    --Weekend: #FF5F1F;
+    --CurrentDay: #FFA500;
+
+*/
