@@ -1,4 +1,4 @@
-function taskMatchesDayAndPerson(dayValue,personId,task) {
+function taskMatchesDayAndPerson(dayValue, personId, task) {
     //her må vi også etter hvert legge inn en sjekk på alder når vi får det på plass
     if (task.done.status) return false;
     if (!task.responsible.includes(personId)) return false;
